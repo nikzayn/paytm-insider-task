@@ -23,12 +23,12 @@ const Upload = () => {
                 getUploadParams={getUploadParams}
                 onChangeStatus={handleChangeStatus}
                 maxFiles={1}
-                accept='.jpg'
+                accept='image/*'
                 multiple={false}
                 canCancel={false}
                 inputContent="Drop A File"
                 styles={{
-                    dropzone: { width: 400, height: 200, overflow: 'hidden' },
+                    dropzone: { width: 400, height: 200, marginTop: '2em', overflow: 'hidden' },
                     dropzoneActive: { borderColor: 'green' },
                 }}
             />
