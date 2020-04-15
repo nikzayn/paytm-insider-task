@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 
-import Popup from '../Popup/Popup';
+import Popup from '../Popup';
 
 
 class Upload extends Component {
@@ -25,10 +25,18 @@ class Upload extends Component {
         return { url: 'http://localhost:8080/upload' }
     }
 
+    validate = (prop, status) => {
+        const meta = prop.meta;
+        console.log(prop);
+        const width = 1024, height = 1024;
+        if (meta.width !== width && meta.width !== height) {
+            console.log("Wrong size");
+            return "Wrong size. Suppored 1024X1024 size"
+        }
+        return false;
+    }
+
     handleChangeStatus = ({ meta, remove }, status) => {
-        // if (status !== 'headers_received') {
-        //     console.log("Dialog");
-        // }
         if (status === 'headers_received') {
             console.log(`${meta.name} uploaded!`)
             remove()
@@ -48,7 +56,9 @@ class Upload extends Component {
                 <Dropzone
                     getUploadParams={this.getUploadParams}
                     onChangeStatus={this.handleChangeStatus}
+                    validate={this.validate}
                     maxFiles={1}
+                    disabled={false}
                     accept='image/*'
                     multiple={false}
                     canCancel={false}
