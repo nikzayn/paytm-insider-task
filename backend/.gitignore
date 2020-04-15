@@ -11,6 +11,7 @@
 
 # misc
 .DS_Store
+src/uploads
 .env
 npm-debug.log*
 yarn-debug.log*
