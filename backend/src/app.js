@@ -25,13 +25,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/upload', upload.any('file'), (req, res) => {
-    res.send('Image Uploaded');
+    // res.send('Image Uploaded');
 
     const data = JSON.parse(req.body.dimensions);
+
     const horizontal = data['0'];
     const vertical = data['1'];
     const horizontalSmall = data['2'];
     const gallery = data['3'];
+
+    console.log(data);
 
     //Check image size
     function checkImage() {
@@ -40,8 +43,6 @@ app.post('/upload', upload.any('file'), (req, res) => {
             const width = 1024, height = 1024;
             if (dimensions.width != width && dimensions.height != height) {
                 res.status(400);
-
-                // res.send("Size not supported. Upload 1024x1024 images")
                 console.log('Invalid Size');
                 return;
             }
@@ -52,10 +53,10 @@ app.post('/upload', upload.any('file'), (req, res) => {
             function cloudUpload(src) {
                 cloudinary.uploader.upload(`${src}`, {
                     eager: [
-                        { x: `${Math.floor(horizontal.x)}`, y: `${Math.floor(horizontal.y)}`, width: `${Math.floor(horizontal.width)}`, height: `${Math.floor(horizontal.height)}` },
-                        { x: `${Math.floor(vertical.x)}`, y: `${Math.floor(vertical.y)}`, width: `${Math.floor(vertical.width)}`, height: `${Math.floor(vertical.height)}` },
-                        { x: `${Math.floor(horizontalSmall.x)}`, y: `${Math.floor(horizontalSmall.y)}`, width: `${Math.floor(horizontalSmall.width)}`, height: `${Math.floor(horizontalSmall.height)}` },
-                        { x: `${Math.floor(gallery.x)}`, y: `${Math.floor(gallery.y)}`, width: `${Math.floor(gallery.width)}`, height: `${Math.floor(gallery.height)}` }
+                        { x: `${Math.floor(horizontal.x)}`, y: `${Math.floor(horizontal.y)}`, width: `${Math.floor(horizontal.width)}`, height: `${Math.floor(horizontal.height)}`, crop: "crop" },
+                        { x: `${Math.floor(vertical.x)}`, y: `${Math.floor(vertical.y)}`, width: `${Math.floor(vertical.width)}`, height: `${Math.floor(vertical.height)}`, crop: "crop" },
+                        { x: `${Math.floor(horizontalSmall.x)}`, y: `${Math.floor(horizontalSmall.y)}`, width: `${Math.floor(horizontalSmall.width)}`, height: `${Math.floor(horizontalSmall.height)}`, crop: "crop" },
+                        { x: `${Math.floor(gallery.x)}`, y: `${Math.floor(gallery.y)}`, width: `${Math.floor(gallery.width)}`, height: `${Math.floor(gallery.height)}`, crop: "crop" }
                     ]
                 }, function (error, result) {
                     if (!error) {
