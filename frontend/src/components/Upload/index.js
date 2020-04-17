@@ -143,7 +143,7 @@ class Upload extends PureComponent {
 
 
     render() {
-        const { src, crop, currentIndex, toggle, loading, processedData } = this.state;
+        const { src, crop, currentIndex, toggle, processedData } = this.state;
         return (
             <Fragment>
                 <Dropzone
