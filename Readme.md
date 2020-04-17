@@ -32,7 +32,7 @@ sudo docker-compose up
 - Code structure could have been improved on frontend.
 - Uploaded Data doesn't have a persistant storage.
 - Backend is an overkill for this simple task, it's storing clodinary credentials. But, according to use case backend seems minimal.
-- Doesn't provide a support to go to previous state of images
+- Doesn't provide a support to go to previous state of images.
 
 ### Edge Cases
 - Saving the image files on the cloud image hosting service called **Cloudinary**.
@@ -44,6 +44,7 @@ sudo docker-compose up
 - Using docker compose system to easily setup the needed dependencies on one command.
 
 ### Note
+- I am creating my repo as a public repository, I couldn't send the zip file as an attachment on email.
 - I have not attached the official environment variables in this code. I have attached the **sample.env** on mail.
 - The sample.env file contains **api_key** and **api_secret** as per security reasons, I am sending the sample.env manually.
 - I am sending the sample.env where you can copy the credentials from mail and replaced it with the dummy credentials which I have written in my sample.env file in my task code.
