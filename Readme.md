@@ -42,3 +42,9 @@ sudo docker-compose up
 - Backend code is well maintained.
 - Using cloudinary library to transform the images and get the exact response for the requested dimensions.
 - Using docker compose system to easily setup the needed dependencies on one command.
+
+### Note
+- I have not attached the official environment variables in this code. I have attached the **sample.env** on mail.
+- The sample.env file contains **api_key** and **api_secret** as per security reasons, I am sending the sample.env manually.
+- I am sending the sample.env where you can copy the credentials from mail and replaced it with the dummy credentials which I have written in my sample.env file in my task code.
+- For any queries, feel free to ping me on my [mail id](nikhilvaidyar1997@gmail.com) or you can contact me as well on **7042224751**
