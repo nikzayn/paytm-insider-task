@@ -7,6 +7,7 @@
 - Usage
 - Issues
 - Edge Cases
+- Note
 
 ### System Requirements
 - Docker
@@ -32,7 +33,7 @@ sudo docker-compose up
 - Code structure could have been improved on frontend.
 - Uploaded Data doesn't have a persistant storage.
 - Backend is an overkill for this simple task, it's storing clodinary credentials. But, according to use case backend seems minimal.
-- Doesn't provide a support to go to previous state
+- Doesn't provide a support to go to previous state of images
 
 ### Edge Cases
 - Saving the image files on the cloud image hosting service called **Cloudinary**.
@@ -42,3 +43,9 @@ sudo docker-compose up
 - Backend code is well maintained.
 - Using cloudinary library to transform the images and get the exact response for the requested dimensions.
 - Using docker compose system to easily setup the needed dependencies on one command.
+
+### Note
+- I have not attached the official environment variables in this code. I have attached the **sample.env** on mail.
+- The sample.env file contains **api_key** and **api_secret**.
+- I am sending the sample.env where you can copy the credentials from mail and replaced it with the dummy credentials which I have written in my sample.env file in my task code.
+- For any queries, feel free to ping me on my mail id [Gmail](nikhilvaidyar1997@gmail.com) or you can contact me as well on **7042224751**
