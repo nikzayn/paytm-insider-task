@@ -18,3 +18,5 @@ services:
       - "8080:8080"
     volumes:
       - ./backend/src:/app/src
+    env_file:
+      - ./.env
