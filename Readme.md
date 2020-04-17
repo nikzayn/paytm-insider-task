@@ -48,4 +48,4 @@ sudo docker-compose up
 - I have not attached the official environment variables in this code. I have attached the **sample.env** on mail.
 - The sample.env file contains **api_key** and **api_secret**.
 - I am sending the sample.env where you can copy the credentials from mail and replaced it with the dummy credentials which I have written in my sample.env file in my task code.
-- For any queries, feel free to ping me on my mail id [Gmail](nikhilvaidyar1997@gmail.com) or you can contact me as well on **7042224751**
+- For any queries, feel free to ping me on my [e-mail id](nikhilvaidyar1997@gmail.com) or you can contact me as well on **7042224751**
