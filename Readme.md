@@ -32,6 +32,7 @@ sudo docker-compose up
 - Code structure could have been improved on frontend.
 - Uploaded Data doesn't have a persistant storage.
 - Backend is an overkill for this simple task, it's storing clodinary credentials. But, according to use case backend seems minimal.
+- Doesn't provide a support to go to previous state
 
 ### Edge Cases
 - Saving the image files on the cloud image hosting service called **Cloudinary**.
@@ -40,3 +41,4 @@ sudo docker-compose up
 - User can only be able to upload image dimension of **1024X1024**. There would be error message, while uploading the image file with different dimensions.
 - Backend code is well maintained.
 - Using cloudinary library to transform the images and get the exact response for the requested dimensions.
+- Using docker compose system to easily setup the needed dependencies on one command.
