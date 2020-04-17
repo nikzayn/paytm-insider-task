@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Upload from './components/Upload/Upload';
-import Display from './components/Display/Display';
+import Upload from './components/Upload';
 
 import './App.css';
 
@@ -11,9 +10,6 @@ class App extends Component {
     return (
       <div className="App">
         <Upload />
-        <br />
-        <br />
-        <Display />
       </div>
     );
   }
