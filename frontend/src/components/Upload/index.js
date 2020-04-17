@@ -1,5 +1,4 @@
 import React, { PureComponent, Fragment } from 'react';
-import PropTypes from 'prop-types'
 import _ from 'lodash';
 
 //Dropzone
@@ -14,9 +13,8 @@ class Upload extends PureComponent {
     state = {
         src: null,
         currentIndex: 0,
-        processedData: [],
+        processedData: undefined,
         toggle: true,
-        loading: false,
         crop: [
             {
                 name: 'Horizontal',
@@ -112,8 +110,7 @@ class Upload extends PureComponent {
         }
 
         this.setState({
-            toggle: false,
-            loading: !this.state.loading
+            toggle: false
         })
 
         request.open('GET', url, true);
@@ -194,7 +191,7 @@ class Upload extends PureComponent {
                         </div>
                         :
                         <div>
-                            <Display processed={processedData} loading={loading} />
+                            <Display processed={processedData} />
                         </div>
                     }
                 </div>
@@ -204,13 +201,3 @@ class Upload extends PureComponent {
 }
 
 export default Upload;
-
-//Proptypes
-Upload.propsType = {
-    src: PropTypes.string,
-    currentIndex: PropTypes.number,
-    processedData: PropTypes.array,
-    toggle: PropTypes.bool,
-    loading: PropTypes.bool,
-    crop: PropTypes.array
-}
