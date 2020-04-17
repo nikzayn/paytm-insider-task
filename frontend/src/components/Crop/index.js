@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types'
 
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
@@ -82,3 +83,8 @@ class Crop extends PureComponent {
 }
 
 export default Crop;
+
+Crop.propsTypes = {
+    src: PropTypes.string,
+    crop: PropTypes.array
+}

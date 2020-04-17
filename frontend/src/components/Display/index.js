@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 import _ from 'lodash';
 
-const Display = ({ processed, loading }) => {
+const Display = ({ processed }) => {
     return (
         <div className="container d-flex justify-content-around flex-row image-crop">
-            {loading ? <h1>Processing...</h1>
+            {!processed ? <h1>Processing...</h1>
                 :
                 <div>
                     <h2 className="text-center">Processed Results:</h2>
@@ -24,3 +25,7 @@ const Display = ({ processed, loading }) => {
 }
 
 export default Display;
+
+Display.propsTypes = {
+    processed: PropTypes.object
+}
