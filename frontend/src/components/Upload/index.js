@@ -1,9 +1,12 @@
 import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types'
 import _ from 'lodash';
 
+//Dropzone
 import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
 
+//Components
 import Crop from '../Crop';
 import Display from '../Display';
 
@@ -13,6 +16,7 @@ class Upload extends PureComponent {
         currentIndex: 0,
         processedData: [],
         toggle: true,
+        loading: false,
         crop: [
             {
                 name: 'Horizontal',
@@ -108,7 +112,8 @@ class Upload extends PureComponent {
         }
 
         this.setState({
-            toggle: false
+            toggle: false,
+            loading: !this.state.loading
         })
 
         request.open('GET', url, true);
@@ -125,7 +130,7 @@ class Upload extends PureComponent {
 
         const elems = ["height", "width", "x", "y"];
         for (let prop of elems) {
-            if (newCrop[index][prop] != cropI[prop]) {
+            if (newCrop[index][prop] !== cropI[prop]) {
                 newCrop[index] = cropI;
                 this.setState({ crop: newCrop })
                 break;
@@ -141,7 +146,7 @@ class Upload extends PureComponent {
 
 
     render() {
-        const { src, crop, currentIndex, toggle, processedData } = this.state;
+        const { src, crop, currentIndex, toggle, loading, processedData } = this.state;
         return (
             <Fragment>
                 <Dropzone
@@ -159,7 +164,8 @@ class Upload extends PureComponent {
                     }}
                 />
                 <div className="m-5">
-                    {src && this.state.currentIndex < 3 && (<button className="btn btn-primary m-2" onClick={this.submitPreview}>Next</button>)}
+                    {src && this.state.currentIndex < 3 &&
+                        (<button className="btn btn-primary m-2" onClick={this.submitPreview}>Next</button>)}
                     {src && (<button className="btn btn-primary m-2" onClick={this.handleSubmit}>Submit</button>)}
 
                 </div>
@@ -172,6 +178,7 @@ class Upload extends PureComponent {
                                         <h3>{item.name}</h3>
                                         <img
                                             style={{ width: '200px', marginBottom: '20px' }}
+                                            alt={item.name}
                                             src={item.croppedImageUrl}
                                         />
                                     </div>
@@ -187,7 +194,7 @@ class Upload extends PureComponent {
                         </div>
                         :
                         <div>
-                            <Display processed={processedData} />
+                            <Display processed={processedData} loading={loading} />
                         </div>
                     }
                 </div>
@@ -196,6 +203,14 @@ class Upload extends PureComponent {
     }
 }
 
-
-
 export default Upload;
+
+//Proptypes
+Upload.propsType = {
+    src: PropTypes.string,
+    currentIndex: PropTypes.number,
+    processedData: PropTypes.array,
+    toggle: PropTypes.bool,
+    loading: PropTypes.bool,
+    crop: PropTypes.array
+}
